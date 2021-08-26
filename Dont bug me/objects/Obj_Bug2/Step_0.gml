@@ -4,22 +4,42 @@
 pre_x = x
 pre_y = y
 
-if place_free(x,y + 5) = false then
+if place_free(x,y + vspeed) = false then
 	{
-		gravity = 0
-		vspeed = 0
+		if vspeed > 0
+		{
+			for (var i = 0; i < vspeed; ++i) 
+				{
+			    if place_free(x,y + vspeed-i) then
+					{ 
+					y += vspeed - i ;
+					i = vspeed ;
+					}
+				}
+		}
+		gravity = 0 ;
+		vspeed = 0 ;
 	}
-	else
+if place_free(x,y+1) then
 	{
-		gravity = .2
+		gravity = .2 ;
 	}
-if place_free(x,y - 5) = false then
+if place_free(x,y -vspeed) = false then
 	{
-		vspeed = 0
+
+			for (var i = 0; i > vspeed; --i) 
+				{
+			    if place_free(x,y + vspeed-i) then
+					{ 
+					y += vspeed - i ;
+					i = vspeed ;
+					}
+				}
+		vspeed = 0 ;
 	}	
 if place_free(x,y) = false then
 	{
-		y -= 1
+		y -= 1 ;
 	}
 //movement 
 {if keyboard_check(vk_up) then
