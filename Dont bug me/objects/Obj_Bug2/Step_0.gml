@@ -3,12 +3,17 @@
 //getting x and y for sprite drawing
 pre_x = x
 pre_y = y
-/*
+
 if place_free(x,y + 5) = false then
 	{
-		vspeed = -0.2
+		gravity = 0
+		vspeed = 0
 	}
-*/
+	else
+	{
+		gravity = .2
+	}
+
 //movement 
 {if keyboard_check(vk_up) then
 {
