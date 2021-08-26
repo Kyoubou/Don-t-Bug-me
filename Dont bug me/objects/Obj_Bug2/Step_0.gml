@@ -13,13 +13,20 @@ if place_free(x,y + 5) = false then
 	{
 		gravity = .2
 	}
-
+if place_free(x,y - 5) = false then
+	{
+		vspeed = 0
+	}	
+if place_free(x,y) = false then
+	{
+		y -= 1
+	}
 //movement 
 {if keyboard_check(vk_up) then
 {
-	if place_free(x,y + 5) = false then
+	if place_free(x,y + 5) = false and place_free(x,y - 5) = true then
 	{
-		vspeed = -5
+		vspeed = -10
 	}
 }
 if keyboard_check(vk_down) then
